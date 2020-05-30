@@ -41,22 +41,21 @@ exports.home_create_get = function (req, res) {
 exports.home_create_post = function (req, res, next) {
   upload(req, res, function (err) {
     if (err) throw err;
-      var picture_path = req.file.path.substr(req.file.path.indexOf('uploads'));
-      var home = new Home({
-        home_name: req.body.hname,
-        summary: req.body.summary,
-        price: req.body.price,
-        picture_url: picture_path,
-        address: req.body.city,
-      });
-      home.save(function (err) {
-        if (err) {
-          return next(err);
-        } else {
-          res.redirect('/catalog');
-        }
-      });
-    }
+    var picture_path = req.file.path.substr(req.file.path.indexOf('uploads'));
+    var home = new Home({
+      home_name: req.body.hname,
+      summary: req.body.summary,
+      price: req.body.price,
+      picture_url: picture_path,
+      address: req.body.city,
+    });
+    home.save(function (err) {
+      if (err) {
+        return next(err);
+      } else {
+        res.redirect('/catalog');
+      }
+    });
   });
 };
 
@@ -117,14 +116,14 @@ exports.home_update_post = function (req, res) {
             : req.file.path.substr(req.file.path.indexOf('uploads')),
         address: req.body.city,
       });
-      if(req.file){
-              Home.findById(req.params.id).exec(function (err,results){
-        if(err) throw err;
-        fs.unlink('./public/'+results.picture_url,(err)=>{
-          if(err) throw err;
-          console.log('successfully updated image')
-        })
-      })
+      if (req.file) {
+        Home.findById(req.params.id).exec(function (err, results) {
+          if (err) throw err;
+          fs.unlink('./public/' + results.picture_url, (err) => {
+            if (err) throw err;
+            console.log('successfully updated image');
+          });
+        });
       }
       Home.findByIdAndUpdate(req.params.id, update).exec(function (
         err,
