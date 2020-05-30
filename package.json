@@ -1,6 +1,9 @@
 {
   "name": "airbnb-clon",
   "version": "0.0.0",
+  "engines": {
+    "node": "13.11.0"
+  },
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
