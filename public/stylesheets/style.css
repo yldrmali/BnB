@@ -1,0 +1,18 @@
+body {
+  padding: 10px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+a {
+  color: #002635;
+  font-weight: bold;
+  border: none;
+  text-align: center; }
+
+.card-img-top {
+  height: 300px;
+  object-fit: cover; }
+
+.input-field i {
+  cursor: pointer; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,32 @@
+extends layout_materialize
+
+block content
+  .container-fluid
+    table.highlight
+      thead
+        tr
+          th Home Name
+          th Price
+          th Address
+          th Update
+          th Delete
+      tbody
+        each result in results
+          tr
+            td #{result.home_name}       
+            td #{result.price}        
+            td #{result.address}
+            td
+              a.waves-light.btn-small.light-blue(href=`./update/${result._id}`) update
+            td
+              -var modalR= `modal`+Math.floor(Math.random()*987654)
+              a.pink.waves-light.btn.modal-trigger(href=`#${modalR}` data-url=`${result._id}`) delete
+              div(id=modalR class="modal")
+                .modal-content
+                  h4.pink-text Are You Sure to delete '#{result.home_name}'
+                  p This home will be deleted immediately. You can't undo this action.
+                .modal-footer
+                  a.modal-close.waves-effect.btn-flat(href=`./delete/${result._id}`) Agree
+
+
+            

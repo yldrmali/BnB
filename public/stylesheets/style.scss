@@ -1,0 +1,23 @@
+body{
+  padding: 10px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
+}
+ 
+
+a{
+  color: rgb(0, 38, 53);
+  font-weight: bold;
+  border: none;
+  text-align: center;
+}
+
+.card-img-top{
+  height:300px;
+  object-fit: cover;
+}
+
+.input-field{
+  i{
+    cursor: pointer;
+  }
+}
