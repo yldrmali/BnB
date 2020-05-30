@@ -40,9 +40,7 @@ exports.home_create_get = function (req, res) {
 
 exports.home_create_post = function (req, res, next) {
   upload(req, res, function (err) {
-    if (err) {
-      res.send('there is a problem');
-    } else {
+    if (err) throw err;
       var picture_path = req.file.path.substr(req.file.path.indexOf('uploads'));
       var home = new Home({
         home_name: req.body.hname,
